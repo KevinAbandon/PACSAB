@@ -1,0 +1,34 @@
+{
+{
+	"index":0,
+	"name":"default values",
+	"vars":{"pi", "a", "tmin", "dijmin", "kkk", "temp", "nbloc", "iwr", "iprint", "tact", "tene", "tsnap", "rcutgo", "sigma", "sigmago", "idap", "irig", "fterm", "ebond", "dstep", "tpush", "isolv", "iterm", "factm", "icm", "rbox", "rshake", "rpot", "dcut", "icons"}
+	"files":{"file9", "file10", "file11", "file12", "file15", "file19", "file20", "file21", "file7", "file16", "file17"}
+	"process":{}
+	"description":"Definición de parametros default y nombres de archivos que se utilizaran en sus respectivas variables."
+},
+{
+	"index":1,
+	"name":"interacciones",
+	"vars":{"eps", "fvdw", "fsolv", "xlamb", "facthc"}
+	"files":{}
+	"process":{}
+	"description":""
+},
+{
+	"index":2,
+	"name":"Puntos de hidrogeno",
+	"vars":{"isec", "ehbc", "ehb", "rohmin", "roha", "rohb", "rohmax", "rnomin", "rnoa", "rnob", rnomax", "rchmin", "rcha", "rchb", "rchmax", "rsolv", "asolv", "bsolv", "dwat", "tene", "tact", "tsnap", "rbox", "rbox2", "rshake", "rshake2", "rpot", "rpot2"}
+	"files":{"STDINPUT", "INPUT", "DISTANCIES"}
+	"process":{"random_seed"}
+	"description":"Puntos de hidrogeno y utiliza el archivo de entrada para definir valores."
+},
+{
+	"index":2,
+	"name":"Lectura de coordenadas",
+	"vars":{"kk", "n", "im", "res", "atom", "cad", "ind1", "ind2", "imol", "k1"},
+	"files":{"file9"},
+	"process":{},
+	"description":""
+}
+}
