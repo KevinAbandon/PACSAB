@@ -2,33 +2,186 @@
 {
 	"index":0,
 	"name":"default values",
-	"vars":{"pi", "a", "tmin", "dijmin", "kkk", "temp", "nbloc", "iwr", "iprint", "tact", "tene", "tsnap", "rcutgo", "sigma", "sigmago", "idap", "irig", "fterm", "ebond", "dstep", "tpush", "isolv", "iterm", "factm", "icm", "rbox", "rshake", "rpot", "dcut", "icons"}
-	"files":{"file9", "file10", "file11", "file12", "file15", "file19", "file20", "file21", "file7", "file16", "file17"}
-	"process":{}
+	"vars":["pi", "a", "tmin", "dijmin", "kkk", "temp", "nbloc", "iwr", "iprint", "tact", "tene", "tsnap", "rcutgo", "sigma", "sigmago", "idap", "irig", "fterm", "ebond", "dstep", "tpush", "isolv", "iterm", "factm", "icm", "rbox", "rshake", "rpot", "dcut", "icons"],
+	"files":["file9", "fil2e10", "file11", "file12", "file15", "file19", "file20", "file21", "file7", "file16", "file17"],
+	"process":[],
 	"description":"Definición de parametros default y nombres de archivos que se utilizaran en sus respectivas variables."
 },
 {
 	"index":1,
-	"name":"interacciones",
-	"vars":{"eps", "fvdw", "fsolv", "xlamb", "facthc"}
-	"files":{}
-	"process":{}
+	"name":"interacciones",	
+	"vars":["eps", "fvdw", "fsolv", "xlamb", "facthc"],
+	"files":[],
+	"process":[],
 	"description":""
 },
 {
 	"index":2,
 	"name":"Puntos de hidrogeno",
-	"vars":{"isec", "ehbc", "ehb", "rohmin", "roha", "rohb", "rohmax", "rnomin", "rnoa", "rnob", rnomax", "rchmin", "rcha", "rchb", "rchmax", "rsolv", "asolv", "bsolv", "dwat", "tene", "tact", "tsnap", "rbox", "rbox2", "rshake", "rshake2", "rpot", "rpot2"}
-	"files":{"STDINPUT", "INPUT", "DISTANCIES"}
-	"process":{"random_seed"}
+	"vars":["isec", "ehbc", "ehb", "rohmin", "roha", "rohb", "rohmax", "rnomin", "rnoa", "rnob", "	rnomax", "rchmin", "rcha", "rchb", "rchmax", "rsolv", "asolv", "bsolv", "dwat", "tene", "tact", "tsnap", "rbox", "rbox2", "rshake", "rshake2", "rpot", "rpot2"],
+	"files":["STDINPUT", "INPUT", "DISTANCIES"],
+	"process":["random_seed"],
 	"description":"Puntos de hidrogeno y utiliza el archivo de entrada para definir valores."
 },
 {
 	"index":2,
 	"name":"Lectura de coordenadas",
-	"vars":{"kk", "n", "im", "res", "atom", "cad", "ind1", "ind2", "imol", "k1"},
-	"files":{"file9"},
-	"process":{},
+	"vars":["kk", "n", "im", "res", "atom", "cad", "ind1", "ind2", "imol", "k1", "c1", "j", "c2", "c3", "c4", "k", "x", "y", "z","r", "natom", "nres", "natmax"],
+	"files":["file9", "file6"],
+	"process":[],
+	"description":""
+},
+{
+	"index":3,
+	"name":"Asigna tipo a cada atomo",
+	"vars":["i", "atom", "nat", "j", "atp"],
+	"files":["file16"],
+	"process":[],
+	"description":""
+},
+{
+	"index":4,
+	"name":"Carga los parametros de cada tipo de atomo",
+	"vars":["i", "j", "natom", "nat", "c1", "xq", "xfree", "xvol", "xevdw", "xrvdw", "xrhc", "xmassa", "qa", "va", "evdwa", "rvdwa", "rhca", "xma"],
+	"files":["file17"],
+	"process":[],
+	"description":""
+},
+{
+	"index":5,
+	"name":"Propiedades de las esferas",
+	"vars":["i", "j", "xmassa", "natom", "xm", "qq", "vol", "gfree", "evdw", "sumrhc", "sumrvdw", "nat", "xma", "va", "gfreea", "evdwa", "rvdw", "rvdwa", "rhc", "qa", "v"],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":6,
+	"name":"Lee la matriz de topologia",
+	"vars":["i", "j", "icov", "nstep", "inter", "istruct", "k", "rij", "ibound", "rbound", "npair", "c1", "INPUT"],
+	"files":["file7", "dmd.out"],
+	"process":[],
+	"description":""
+},
+{
+	"index":7,
+	"name":"Reconoce estructura secundaria y establece puntos de hidrogeno",
+	"vars":["nbh", "i", "ii", "io", "j", "ihb", "nres", "res", "ica", "jj", "ih", "n1", "n2", "rij1", "rij2", "rij3", "dbox", "roh", "rohmax", "rohmin", "rno", "rnomax", "rnomin", "rch", "rchmax", "rchmin", "atom", "in"],
+	"files":[],
+	"process":["potencial"],
+	"description":""
+},
+{
+	"index":8,
+	"name":"Lista de solapamientos posibles",
+	"vars":["i", "natom", "ishk", "ipot", "j", "icov", "rij1", "rij2", "rij3", "dbox", "rmod2", "rshake2", "ishk", "k", "nshk", "isctruct", "npot", "isolv", "dcut"],
+	"files":[],
+	"process":["enchufa"],
+	"description":""
+},
+
+{
+	"index":9,
+	"name":"Asigna la región donde se encuentra la interacción entre dos partículas",
+	"vars":["i", "natom", "j", "icov", "rij1", "rij2", "rij3", "dbox", "rmod2", "rij", "k", "rstep", "nstep", "ireg"],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":10,
+	"name":"Suma la energia potencial de la confromacion inicial",
+	"vars":["epot0", "epotmol0", "epothb0", "epothbmol0", "natom", "i", "j", "rij1", "rij2", "rij3", "dbox", "rmod2", "dist", "inter", "k", "nstep", "rstep", "estep"],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":11,
+	"name":"Asigna velocidades aleatorias",
+	"vars":["j", "i", "vcm", "natom", "fi", "v", "xm", "xmassa"],
+	"files":[],
+	"process":["random_number"],
+	"description":""
+},
+{
+	"index":12,
+	"name":"Ajusta la energia cinetica a la temperatura requerida",
+	"vars":["ekin", "j", "i", "natom", "v", "vcm", "ekin", "xm", "a", "sto", "temp", "ekin0", "facte", "etot0", "epot0"],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":13,
+	"name":"Busca el CM",
+	"vars":["j", "rcm", "i", "xm", "r", "xmassa", "ibloc"],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":14,
+	"name":"Escribe las coordenadas en el SRCM",
+	"vars":[],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":15,
+	"name":"Lista de solapamientos posibles",
+	"vars":["i", "natom", "ishk", "ipot", "j", "icov", "rij1", "rij2", "rij3", "dbox", "rmod2", "rshake2", "nshk", "k", "isctruct", "rpot2", "npot", "mem1", "mem2", "iev", "ierr", "ierr2", "temps0", "temps", "rant", "tacene", "tacact", "icint", "npair", "inter", "isolv", "dcut"],
+	"files":[],
+	"process":["dmdshake", "enchufa"],
+	"description":""
+},
+{
+	"index":3,
+	"name":"",
+	"vars":[],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":3,
+	"name":"",
+	"vars":[],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":3,
+	"name":"",
+	"vars":[],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":3,
+	"name":"",
+	"vars":[],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":3,
+	"name":"",
+	"vars":[],
+	"files":[],
+	"process":[],
+	"description":""
+},
+{
+	"index":3,
+	"name":"",
+	"vars":[],
+	"files":[],
+	"process":[],
 	"description":""
 }
 }
